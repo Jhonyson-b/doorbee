@@ -1,0 +1,24 @@
+@theme {
+  --color-navy: #14204a;
+  --color-gold: #d9b56b;
+  --color-gold-hover: #b8924a;
+  --color-gold-soft: #f0dda8;
+  --color-sky: #9ccbef;
+  --color-sky-light: #e4f0fb;
+  --color-mist: #f1f3f8;
+  --color-white: #ffffff;
+  --color-slate: #4a5578;
+}
+
+:root {
+  --color-text-primary: var(--color-navy);
+  --color-text-secondary: var(--color-slate);
+  --color-heading: var(--color-navy);
+  --color-button-primary: var(--color-gold);
+  --color-button-primary-hover: var(--color-gold-hover);
+  --color-badge: var(--color-gold-soft);
+  --color-link: var(--color-sky);
+  --color-section-background: var(--color-sky-light);
+  --color-page-background: var(--color-mist);
+  --color-surface: var(--color-white);
+}
