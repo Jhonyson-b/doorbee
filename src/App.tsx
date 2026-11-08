@@ -1,5 +1,6 @@
 
 import HeroSection from './components/HeroSection'
+import HowItWorksSection from './components/HowItWorksSection'
 import SiteHeader from './components/SiteHeader'
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <>
       <SiteHeader />
       <HeroSection />
+      <HowItWorksSection />
     </>
   )
 }
