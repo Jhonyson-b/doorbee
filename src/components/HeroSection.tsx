@@ -16,7 +16,7 @@ const previewLinks = [
   'Contato para shows',
 ]
 
-function HeroSection() {
+const HeroSection = () => {
   return (
     <section className="bg-linear-to-br from-mist via-sky-light to-mist">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:py-24">

@@ -2,7 +2,7 @@
 import HeroSection from './components/HeroSection'
 import SiteHeader from './components/SiteHeader'
 
-function App() {
+const App = () => {
   return (
     <>
       <SiteHeader />

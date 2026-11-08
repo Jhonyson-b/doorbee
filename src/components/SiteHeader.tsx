@@ -1,4 +1,4 @@
-function LogoPlaceholder() {
+const LogoPlaceholder = () => {
   return (
     <span
       aria-hidden="true"
@@ -9,7 +9,7 @@ function LogoPlaceholder() {
   )
 }
 
-function SiteHeader() {
+const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-sky-light bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">

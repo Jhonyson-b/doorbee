@@ -4,7 +4,7 @@ type ProfilePreviewProps = {
   links: string[]
 }
 
-function ProfilePreview({ name, handle, links }: ProfilePreviewProps) {
+const ProfilePreview = ({ name, handle, links }: ProfilePreviewProps) => {
   return (
     <div className="mx-auto w-full max-w-xs rounded-[2.5rem] border-8 border-navy bg-white p-6 shadow-2xl">
       <div className="flex flex-col items-center text-center">
