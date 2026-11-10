@@ -1,4 +1,4 @@
-import ProfilePreview from './ProfilePreview'
+import ProfilePreview from '../previa-perfil/ProfilePreview'
 
 const linkTypes = [
   'WhatsApp',

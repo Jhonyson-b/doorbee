@@ -1,3 +1,5 @@
+import Pricing from './Pricing'
+
 const steps = [
   {
     number: '01',
@@ -41,6 +43,8 @@ const HowItWorksSection = () => {
             </li>
           ))}
         </ol>
+
+        <Pricing />
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
 
-import HeroSection from './components/HeroSection'
-import HowItWorksSection from './components/HowItWorksSection'
-import SiteHeader from './components/SiteHeader'
+import HeroSection from './components/apresentacao/HeroSection'
+import SiteHeader from './components/cabecalho/SiteHeader'
+import HowItWorksSection from './components/como-funciona/HowItWorksSection'
 
 const App = () => {
   return (
