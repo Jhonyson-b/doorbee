@@ -28,7 +28,7 @@ const questions = [
 
 const FaqSection = () => {
   return (
-    <section className="bg-white">
+    <section id="faq" className="bg-white">
       <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8 lg:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl sm:text-4xl">Perguntas frequentes</h2>
