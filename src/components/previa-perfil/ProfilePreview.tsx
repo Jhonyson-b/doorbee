@@ -1,19 +1,34 @@
 type ProfilePreviewProps = {
-  name: string
-  handle: string
-  links: string[]
-}
+  name: string;
+  handle: string;
+  links: string[];
+  image?: string;
+};
 
-const ProfilePreview = ({ name, handle, links }: ProfilePreviewProps) => {
+const ProfilePreview = ({
+  name,
+  handle,
+  links,
+  image,
+}: ProfilePreviewProps) => {
   return (
     <div className="mx-auto w-full max-w-xs rounded-[2.5rem] border-8 border-navy bg-white p-6 shadow-2xl">
       <div className="flex flex-col items-center text-center">
-        <div
-          aria-hidden="true"
-          className="flex h-20 w-20 items-center justify-center rounded-full bg-gold-soft font-heading text-3xl font-bold text-navy"
-        >
-          {name.charAt(0)}
-        </div>
+        {image ? (
+          <img
+            src={image}
+            alt={`Foto de perfil de ${name}`}
+            className="h-20 w-20 rounded-full object-cover"
+          />
+        ) : (
+          <div
+            aria-hidden="true"
+            className="flex h-20 w-20 items-center justify-center rounded-full bg-gold-soft font-heading text-3xl font-bold text-navy"
+          >
+            {name.charAt(0)}
+          </div>
+        )}
+
         <p className="mt-3 font-heading text-lg font-bold text-navy">{name}</p>
         <p className="text-sm text-slate">{handle}</p>
       </div>
@@ -29,9 +44,11 @@ const ProfilePreview = ({ name, handle, links }: ProfilePreviewProps) => {
         ))}
       </ul>
 
-      <p className="mt-6 text-center text-xs text-slate">feito com Doorbee 🐝</p>
+      <p className="mt-6 text-center text-xs text-slate">
+        feito com Doorbee 🐝
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default ProfilePreview
+export default ProfilePreview;

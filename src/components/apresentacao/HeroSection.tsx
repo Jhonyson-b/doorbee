@@ -1,4 +1,5 @@
 import ProfilePreview from '../previa-perfil/ProfilePreview'
+import avatarImage from '../../assets/images/cantora-avatar.jpeg'
 
 const linkTypes = [
   'WhatsApp',
@@ -30,14 +31,12 @@ const HeroSection = () => {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg">
-            O Doorbee é o gerador de link para a sua bio do Instagram. Organize WhatsApp, outros
-            perfis, lojas, endereço, músicas e agendamentos em uma página com a sua identidade
-            visual.
+            O Doorbee é a página de links da sua bio. Reúna WhatsApp, lojas, endereço, músicas e agendamentos num só lugar, com a sua identidade visual.  
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#como-funciona"
+              href="#"
               className="rounded-full bg-gold px-7 py-3 font-semibold text-navy transition-colors hover:bg-gold-hover"
             >
               Começar grátis
@@ -62,7 +61,7 @@ const HeroSection = () => {
           </ul>
         </div>
 
-        <ProfilePreview name="MC Rafa Beat" handle="@rafabeat" links={previewLinks} />
+        <ProfilePreview name="Rafa Guimarães" handle="@rafaguimmm_" links={previewLinks} image={avatarImage} />
       </div>
     </section>
   )
