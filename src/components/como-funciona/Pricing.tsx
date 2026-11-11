@@ -2,7 +2,7 @@ const plans = [
   {
     name: 'Grátis',
     price: 'R$ 0/mês',
-    features: ['Até 10 links', 'Temas básicos', 'Link doorbee.com/voce'],
+    features: ['Até 5 links', 'Temas básicos', 'Link doorbee.com/voce'],
     highlighted: false,
   },
   {
@@ -33,7 +33,7 @@ const Pricing = () => {
             className={`rounded-2xl border p-6 ${
               highlighted
                 ? 'border-navy bg-navy text-white'
-                : 'border-sky-light bg-white text-navy'
+                : 'border-sky-light bg-white text-navy shadow-md shadow-navy/20'
             }`}
           >
             <h4 className={`font-heading text-2xl font-bold ${highlighted ? 'text-white' : ''}`}>
