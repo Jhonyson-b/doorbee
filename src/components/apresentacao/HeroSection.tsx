@@ -1,5 +1,5 @@
 import ProfilePreview from '../previa-perfil/ProfilePreview'
-import avatarImage from '../../assets/images/cantora-avatar.jpeg'
+import avatarImage from '../../assets/images/cantora-avatar-mockup.jpeg'
 
 const linkTypes = [
   'WhatsApp',

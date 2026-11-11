@@ -1,8 +1,28 @@
+const variants = {
+  default: {
+    card: 'border-navy bg-white',
+    link: 'bg-sky-light text-navy',
+  },
+  salon: {
+    card: 'border-gold bg-white',
+    link: 'bg-gold-soft text-navy',
+  },
+  artist: {
+    card: 'border-navy bg-mist',
+    link: 'bg-navy text-white',
+  },
+  coffee: {
+    card: 'border-gold-hover bg-white',
+    link: 'bg-mist text-navy',
+  },
+}
+
 type ProfilePreviewProps = {
   name: string;
   handle: string;
-  links: string[];
+  links: readonly string[];
   image?: string;
+  variant?: keyof typeof variants
 };
 
 const ProfilePreview = ({
@@ -10,9 +30,12 @@ const ProfilePreview = ({
   handle,
   links,
   image,
+  variant = 'default',
 }: ProfilePreviewProps) => {
+  const styles = variants[variant]
+
   return (
-    <div className="mx-auto w-full max-w-xs rounded-[2.5rem] border-8 border-navy bg-white p-6 shadow-2xl">
+    <div className={`mx-auto w-full max-w-xs rounded-[2.5rem] border-8 p-6 shadow-2xl ${styles.card}`}>
       <div className="flex flex-col items-center text-center">
         {image ? (
           <img
@@ -37,7 +60,7 @@ const ProfilePreview = ({
         {links.map((link) => (
           <li
             key={link}
-            className="rounded-full bg-sky-light px-4 py-3 text-center text-sm font-semibold text-navy"
+            className={`rounded-full px-4 py-3 text-center text-sm font-semibold ${styles.link}`}
           >
             {link}
           </li>
