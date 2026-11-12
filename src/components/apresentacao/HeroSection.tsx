@@ -61,7 +61,7 @@ const HeroSection = () => {
           </ul>
         </div>
 
-        <ProfilePreview name="Rafa Guimarães" handle="@rafaguimmm_" links={previewLinks} image={avatarImage} />
+        <ProfilePreview name="Rafa Guimarães" handle="@rafaguimmm_" links={previewLinks} image={avatarImage} variant="singer" />
       </div>
     </section>
   )

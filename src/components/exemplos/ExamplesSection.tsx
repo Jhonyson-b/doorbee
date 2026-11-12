@@ -1,6 +1,6 @@
 import ProfilePreview from "../previa-perfil/ProfilePreview";
 import avatarSalaoDeBeleza from "../../assets/images/salao-de-beleza-avatar-mockup.jpeg";
-import avatarArtista from "../../assets/images/cantora-avatar-mockup.jpeg";
+import avatarArtista from "../../assets/images/cantor-avatar-mockup.jpeg";
 import avatarCafeteria from "../../assets/images/cafeteria-avatar-mockup.jpeg";
 
 const examples = [
@@ -18,8 +18,8 @@ const examples = [
     variant: "salon",
   },
   {
-    name: "Rafa Guimarães",
-    handle: "@rafaguimmm_",
+    name: "João Barro",
+    handle: "@joaobarro_",
     links: [
       "Ouvir no Spotify",
       "Novo clipe no YouTube",
@@ -55,7 +55,7 @@ const ExamplesSection = () => {
           {examples.map(({ name, handle, links, category, image, variant }) => (
             <article
               key={handle}
-              className="flex flex-col items-center rounded-3xl bg-white px-5 py-8"
+              className="flex flex-col items-center rounded-3xl px-5 py-8"
             >
               <ProfilePreview
                 name={name}
