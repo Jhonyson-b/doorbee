@@ -1,3 +1,5 @@
+import { useId, useState } from 'react'
+
 const questions = [
   {
     question: 'O Doorbee é gratuito?',
@@ -7,7 +9,7 @@ const questions = [
   {
     question: 'Quantos links posso adicionar?',
     answer:
-      'No plano grátis, você pode adicionar até 10 links. Com o plano Pro, pode adicionar links ilimitados.',
+      'No plano grátis, você pode adicionar até 5 links. Com o plano Pro, pode adicionar links ilimitados.',
   },
   {
     question: 'Consigo usar minhas cores e minha logo?',
@@ -26,6 +28,47 @@ const questions = [
   },
 ]
 
+type FaqItemProps = {
+  question: string
+  answer: string
+  initiallyOpen: boolean
+}
+
+const FaqItem = ({ question, answer, initiallyOpen }: FaqItemProps) => {
+  const [isOpen, setIsOpen] = useState(initiallyOpen)
+  const answerId = useId()
+
+  return (
+    <div className="py-5">
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={answerId}
+        onClick={() => setIsOpen((open) => !open)}
+        className="flex w-full items-center justify-between gap-4 text-left font-semibold text-navy"
+      >
+        <span>{question}</span>
+        <span
+          aria-hidden="true"
+          className={`shrink-0 text-xl text-gold-hover motion-safe:transition-transform motion-safe:duration-300 ${isOpen ? 'rotate-45' : ''}`}
+        >
+          +
+        </span>
+      </button>
+      <div
+        id={answerId}
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        className={`grid motion-safe:transition-[grid-template-rows,opacity] motion-safe:duration-300 motion-safe:ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <p className="mt-4 pr-8 leading-relaxed">{answer}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const FaqSection = () => {
   return (
     <section id="faq" className="bg-white">
@@ -36,18 +79,12 @@ const FaqSection = () => {
 
         <div className="mt-10 divide-y divide-sky-light rounded-2xl border border-sky-light px-6">
           {questions.map(({ question, answer }, index) => (
-            <details key={question} className="group py-5" open={index === 0}>
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-navy marker:content-none">
-                <span>{question}</span>
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 text-xl text-gold-hover transition-transform group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <p className="mt-4 pr-8 leading-relaxed">{answer}</p>
-            </details>
+            <FaqItem
+              key={question}
+              question={question}
+              answer={answer}
+              initiallyOpen={index === 0}
+            />
           ))}
         </div>
       </div>
