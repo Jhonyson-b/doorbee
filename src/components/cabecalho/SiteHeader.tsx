@@ -1,4 +1,12 @@
 import logoImage from "../../assets/images/logo-png.png";
+import MobileMenu from "../menu-hamburguer/MobileMenu";
+
+const navigationLinks = [
+  { href: "#como-funciona", label: "Como funciona" },
+  { href: "#planos", label: "Planos" },
+  { href: "#exemplos", label: "Exemplos" },
+  { href: "#faq", label: "FAQ" },
+];
 
 const Logo = () => {
   return (
@@ -25,43 +33,26 @@ const SiteHeader = () => {
           </span>
         </a>
 
-        <div className="flex items-center gap-7">
-          <a
-            href="#como-funciona"
-            className="text-navy text-sm font-medium transition-colors duration-200 hover:text-gold-hover"
-          >
-            Como funciona
-          </a>
-
-          <a
-            href="#planos"
-            className="text-navy text-sm font-medium transition-colors duration-200 hover:text-gold-hover"
-          >
-            Planos
-          </a>
-
-          <a
-            href="#exemplos"
-            className="text-navy text-sm font-medium transition-colors duration-200 hover:text-gold-hover"
-          >
-            Exemplos
-          </a>
-
-          <a
-            href="#faq"
-            className="text-navy text-sm font-medium transition-colors duration-200 hover:text-gold-hover"
-          >
-            FAQ
-          </a>
-
-        </div>
+        <nav aria-label="Navegação principal" className="hidden items-center gap-7 md:flex">
+          {navigationLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-navy text-sm font-medium transition-colors duration-200 hover:text-gold-hover"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
 
         <a
-            href="#"
-            className="rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:px-6 sm:text-base"
-          >
-            Criar meu Doorbee
-          </a>
+          href="#"
+          className="hidden rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:px-6 sm:text-base md:block"
+        >
+          Criar meu Doorbee
+        </a>
+
+        <MobileMenu links={navigationLinks} />
       </div>
     </header>
   );
