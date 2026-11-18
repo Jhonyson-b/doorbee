@@ -1,21 +1,29 @@
+import logoImage from "../../assets/images/logo-png.png";
+
+const Logo = () => {
+  return (
+    <img
+      src={logoImage}
+      alt="Logo Doorbee"
+      className="h-11 w-auto object-contain"
+    />
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 lg:py-16">
+      <div className="mx-auto max-w-6xl px-5 pt-12 sm:px-8 lg:pt-16">
+
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <a href="#" className="inline-flex items-center gap-3" aria-label="Doorbee - início">
-              <span
-                aria-hidden="true"
-                className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft font-heading text-xl font-bold text-navy"
-              >
-                D
-              </span>
+              <Logo />
               <span className="font-heading text-2xl font-bold">Doorbee</span>
             </a>
-            <p className="mt-4 max-w-xs text-white/80">
-              Todos os seus links em uma porta só.
-            </p>
+            <p className="mt-4 max-w-xs text-sm text-white/80">
+              Uma porta de entrada para todos os seus links.
+            </p>  
           </div>
 
           <nav aria-label="Links do produto">
@@ -51,12 +59,15 @@ const Footer = () => {
                 </a>
               </li>
               <li>@doorbee</li>
-              <li>Fortaleza, CE</li>
+              <li>João Pessoa, PB</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/20 pt-6 text-sm text-white/70">
+      </div>
+
+      <div className="mt-10 border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-5 pt-6 pb-12 text-sm text-white/70 sm:px-8 lg:pb-16 flex justify-center">
           © {new Date().getFullYear()} Doorbee. Todos os direitos reservados.
         </div>
       </div>
