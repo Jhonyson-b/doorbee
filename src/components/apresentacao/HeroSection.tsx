@@ -1,5 +1,6 @@
 import ProfilePreview from '../previa-perfil/ProfilePreview'
 import avatarImage from '../../assets/images/cantora-avatar-mockup.jpeg'
+import ButtonLink from '../button/ButtonLink'
 
 const linkTypes = [
   'WhatsApp',
@@ -35,12 +36,12 @@ const HeroSection = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="rounded-full bg-gold px-7 py-3 font-semibold text-navy transition-colors hover:bg-gold-hover"
+            <ButtonLink
+              to="/sign-up"
+              className="px-7 py-3"
             >
               Começar grátis
-            </a>
+            </ButtonLink>
             <a
               href="#exemplos"
               className="rounded-full border-2 border-navy px-7 py-3 font-semibold text-navy transition-colors hover:bg-navy hover:text-white"

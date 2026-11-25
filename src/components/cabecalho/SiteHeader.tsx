@@ -1,5 +1,8 @@
 import logoImage from "../../assets/images/logo-png.png";
 import MobileMenu from "../menu-hamburguer/MobileMenu";
+import { Link } from "react-router";
+import { useAuth } from "../../auth/useAuth";
+import ButtonLink from "../button/ButtonLink";
 
 const navigationLinks = [
   { href: "#como-funciona", label: "Como funciona" },
@@ -19,6 +22,7 @@ const Logo = () => {
 };
 
 const SiteHeader = () => {
+  const { session } = useAuth();
   return (
     <header className="sticky top-0 z-50 border-b border-sky-light bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
@@ -45,12 +49,16 @@ const SiteHeader = () => {
           ))}
         </nav>
 
-        <a
-          href="#"
-          className="hidden rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:px-6 sm:text-base md:block"
-        >
-          Criar meu Doorbee
-        </a>
+        <div className="hidden items-center gap-5 md:flex">
+          {session ? (
+            <ButtonLink to="/dashboard" variant="navy" className="px-6 py-2.5">Meu painel</ButtonLink>
+          ) : (
+            <>
+              <Link to="/sign-in" className="text-sm font-semibold text-navy">Entrar</Link>
+              <ButtonLink to="/sign-up" variant="navy" className="px-6 py-2.5">Criar meu Doorbee</ButtonLink>
+            </>
+          )}
+        </div>
 
         <MobileMenu links={navigationLinks} />
       </div>

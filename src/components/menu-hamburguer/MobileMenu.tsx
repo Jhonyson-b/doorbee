@@ -1,10 +1,14 @@
 import { useId, useRef, useState } from "react";
+import { Link } from "react-router";
+import { useAuth } from "../../auth/useAuth";
+import ButtonLink from "../button/ButtonLink";
 
 type MobileMenuProps = {
   links: readonly { href: string; label: string }[];
 };
 
 const MobileMenu = ({ links }: MobileMenuProps) => {
+  const { session } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const menuId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -70,13 +74,19 @@ const MobileMenu = ({ links }: MobileMenuProps) => {
                 {label}
               </a>
             ))}
-            <a
-              href="#"
+            <ButtonLink
+              to={session ? "/dashboard" : "/sign-up"}
               onClick={closeMenu}
-              className="mt-3 block rounded-full bg-navy px-5 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              variant="navy"
+              className="mt-3 block px-5 py-2.5 text-center text-sm"
             >
-              Criar meu Doorbee
-            </a>
+              {session ? "Meu painel" : "Criar meu Doorbee"}
+            </ButtonLink>
+            {!session && (
+              <Link to="/sign-in" onClick={closeMenu} className="mt-3 block py-2 text-center text-sm font-semibold text-navy">
+                Entrar
+              </Link>
+            )}
           </div>
         </div>
       </nav>
