@@ -6,6 +6,8 @@ import ExamplesSection from './components/exemplos/ExamplesSection'
 import FaqSection from './components/perguntas-frequentes/FaqSection'
 import Footer from './components/rodape/Footer'
 
+
+
 const App = () => {
   return (
     <>
