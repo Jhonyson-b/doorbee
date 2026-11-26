@@ -46,6 +46,9 @@ sobrenome são enviados em `user_metadata.full_name` para o gatilho de criação
 do perfil. A senha exige ao menos 6 caracteres, uma letra e um número no
 frontend; configure a política equivalente no Supabase para aplicá-la também
 fora do aplicativo. Essas novas regras de senha não são exigidas no login.
+As regras ficam em `src/pages/autenticacao/authSchemas.ts`; as configurações,
+valores iniciais e hooks dos formulários ficam na mesma pasta. Os campos são
+validados ao perder o foco e, após uma tentativa de envio, ao serem alterados.
 A proteção da rota controla apenas a interface: configure as políticas RLS
 nas tabelas para proteger os dados no Supabase.
 

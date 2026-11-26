@@ -1,23 +1,20 @@
+// Página de login: apresenta o formulário e autentica o usuário no Supabase.
 import { useState } from 'react'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
 import { Link, useLocation } from 'react-router'
 import AuthLayout from '../../components/autenticacao/AuthLayout'
 import CredentialsFields from '../../components/autenticacao/CredentialsFields'
 import GoogleSignIn from '../../components/autenticacao/GoogleSignIn'
 import Button from '../../components/button/Button'
 import { supabase } from '../../lib/supabase'
-import { signInSchema, type SignInValues } from './authSchemas'
+import type { SignInValues } from './authSchemas'
+import { useSignInForm } from './useSignInForm'
 
 const SignIn = () => {
   const location = useLocation()
   const [pending, setPending] = useState(false)
   const [error, setError] = useState('')
   const callbackError = typeof location.state?.authError === 'string' ? location.state.authError : ''
-  const { register, handleSubmit, formState: { errors } } = useForm<SignInValues>({
-    resolver: zodResolver(signInSchema),
-    defaultValues: { email: '', password: '' },
-  })
+  const { register, handleSubmit, errors } = useSignInForm()
 
   const signIn = async ({ email, password }: SignInValues) => {
     setError('')

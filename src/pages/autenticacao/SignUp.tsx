@@ -1,6 +1,5 @@
+// Página de cadastro: apresenta o formulário e cria a conta no Supabase.
 import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import { authRedirectUrl } from "../../auth/authRedirect";
 import AuthLayout from "../../components/autenticacao/AuthLayout";
@@ -8,20 +7,14 @@ import CredentialsFields from "../../components/autenticacao/CredentialsFields";
 import GoogleSignIn from "../../components/autenticacao/GoogleSignIn";
 import Button from "../../components/button/Button";
 import { supabase } from "../../lib/supabase";
-import { signUpSchema, type SignUpValues } from "./authSchemas";
+import type { SignUpValues } from "./authSchemas";
+import { useSignUpForm } from "./useSignUpForm";
 
 const SignUp = () => {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [confirmation, setConfirmation] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignUpValues>({
-    resolver: zodResolver(signUpSchema),
-    defaultValues: { fullName: "", email: "", password: "" },
-  });
+  const { register, handleSubmit, errors } = useSignUpForm();
 
   const signUp = async ({ fullName, email, password }: SignUpValues) => {
     setError("");
