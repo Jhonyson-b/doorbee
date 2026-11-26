@@ -41,6 +41,11 @@ Configure `VITE_SUPABASE_URL` e `VITE_SUPABASE_PUBLISHABLE_KEY` no
 Após o Google ou a confirmação de e-mail, o Supabase retorna à página inicial
 e o aplicativo encaminha a sessão para o painel. Se a confirmação estiver
 habilitada, o cadastro sem sessão exibirá uma mensagem para verificar o e-mail.
+A validação dos formulários usa React Hook Form e Zod. No cadastro, o nome e
+sobrenome são enviados em `user_metadata.full_name` para o gatilho de criação
+do perfil. A senha exige ao menos 6 caracteres, uma letra e um número no
+frontend; configure a política equivalente no Supabase para aplicá-la também
+fora do aplicativo. Essas novas regras de senha não são exigidas no login.
 A proteção da rota controla apenas a interface: configure as políticas RLS
 nas tabelas para proteger os dados no Supabase.
 
