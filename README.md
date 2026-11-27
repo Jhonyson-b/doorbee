@@ -7,9 +7,12 @@ Instale as dependências com `npm install` e inicie o projeto com `npm run dev`.
 ## Rotas
 
 O React Router está configurado em `src/main.tsx`. A rota `/` exibe a página
-inicial, `/sign-in` permite entrar, `/sign-up` permite criar uma conta e
-`/dashboard` é o painel protegido. O botão de sair fica no painel e encerra a
-sessão no dispositivo atual. O roteador usa o caminho base configurado no Vite.
+inicial, `/sign-in` permite entrar, `/sign-up` permite criar uma conta,
+`/create-page` permite criar a primeira página e `/dashboard` é o painel
+protegido. Usuários sem página são direcionados para a criação; usuários que
+já possuem página são direcionados para o painel. O botão de sair está
+disponível no painel e na criação e encerra a sessão no dispositivo atual. O
+roteador usa o caminho base configurado no Vite.
 
 As páginas de login e cadastro ficam em `src/pages/autenticacao`, com elementos
 compartilhados em `src/components/autenticacao`. O componente do painel fica em
@@ -39,8 +42,9 @@ Configure `VITE_SUPABASE_URL` e `VITE_SUPABASE_PUBLISHABLE_KEY` no
    utiliza `{{ .ConfirmationURL }}` ou respeita `{{ .RedirectTo }}`.
 
 Após o Google ou a confirmação de e-mail, o Supabase retorna à página inicial
-e o aplicativo encaminha a sessão para o painel. Se a confirmação estiver
-habilitada, o cadastro sem sessão exibirá uma mensagem para verificar o e-mail.
+e o aplicativo encaminha a sessão para a criação ou o painel. Se a confirmação
+estiver habilitada, o cadastro sem sessão exibirá uma mensagem para verificar o
+e-mail.
 A validação dos formulários usa React Hook Form e Zod. No cadastro, o nome e
 sobrenome são enviados em `user_metadata.full_name` para o gatilho de criação
 do perfil. A senha exige ao menos 6 caracteres, uma letra e um número no
@@ -54,6 +58,16 @@ nas tabelas para proteger os dados no Supabase.
 
 Documentação: [login com Google no Supabase](https://supabase.com/docs/guides/auth/social-sign-in/auth-google)
 e [URLs de redirecionamento](https://supabase.com/docs/guides/auth/redirect-urls).
+
+## Criação de páginas
+
+O fluxo requer a tabela `public.pages` com uma página por usuário, `user_id`
+com valor padrão `auth.uid()`, unicidade de slug e as políticas RLS de leitura
+da própria página e inserção para o usuário autenticado. A unicidade é verificada
+na inserção pelo banco, inclusive para páginas privadas. Atualize a lista de
+slugs reservados em `src/pages/criacao-paginas/pageSchema.ts` junto às regras
+do banco; `create-page` também é reservado no frontend por ser uma rota do app.
+A prévia `doorbee.com/` é ilustrativa: a rota pública da página ainda não foi implementada.
 
 ## Publicação no GitHub Pages
 
